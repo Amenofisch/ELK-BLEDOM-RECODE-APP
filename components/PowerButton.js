@@ -1,7 +1,6 @@
 import RequestProcessor from '../RequestProcessor';
 import { Button, StyleSheet } from 'react-native';
-import config from '../config';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const PowerButton = (props) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +13,7 @@ const PowerButton = (props) => {
 
     return (
         <>
-            <Button title={props.value.toString()} color={props.value ? "#2ecc71" : "#e74c3c"} onPress={() => proccessReq(props.value, props.device)} />
+            <Button style={styles.button} title={props.value ? 'ON' : 'OFF'} color={props.value ? "#2ecc71" : "#e74c3c"} onPress={() => proccessReq(props.value, props.device)} />
         </>
     )
 }

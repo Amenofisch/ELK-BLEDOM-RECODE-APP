@@ -13,13 +13,12 @@ export default function App() {
 
     useEffect(() => {
         RequestProcessor.getDevices().then((devices) => {
-            setDevices(devices);
-            setIsLoading(false);
+            setDevices(devices);      
         });
         RequestProcessor.getServerInfo().then((info) => {
-            console.log(info);
             setServerInfo(info);
         });
+        setIsLoading(false);
     }, []);
 
     return (
@@ -28,8 +27,7 @@ export default function App() {
             <View style={styles.header}>
                 <Text style={textStyle.title}>ELK-BLEDOM-RECODE</Text>
                 <Text style={textStyle.subtitle}>by Amenofisch</Text>
-                <Text style={textStyle.subtitle}>Server Name: {serverInfo.server.name}</Text>
-                <Text style={textStyle.subtitle}>Server Version: {serverInfo.server.version}</Text> 
+                <Text style={textStyle.subtitle}>{serverInfo.server.name} /// {serverInfo.server.version}</Text>
                 <Text style={textStyle.subtitle}>Selected Device: {selectedDevice.name}</Text>
             </View>
 
@@ -41,7 +39,7 @@ export default function App() {
 
             <View style={styles.footer}>
                 <View style={styles.devicesContainer}>
-                    <Button title="All Devices" onPress={() => setSelectedDevice({"name": "all"})} />
+                    <Button title="All Devices" onPress={() => setSelectedDevice({"name": "All"})} />
                     {devices.map((device) =>{
                         return <Button key={device.id} title={device.name} onPress={() => setSelectedDevice(device)} />
                     })}
