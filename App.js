@@ -8,7 +8,7 @@ import PowerButton from './components/PowerButton.js';
 export default function App() {
     const [isLoading, setIsLoading] = useState(true);
     const [devices, setDevices] = useState([]);
-    const [selectedDevice, setSelectedDevice] = useState({"name": "all"});
+    const [selectedDevice, setSelectedDevice] = useState({"name": "All"});
     const [serverInfo, setServerInfo] = useState({'server': {'version': 'error'}});
 
     useEffect(() => {
@@ -30,10 +30,10 @@ export default function App() {
                 <Text style={textStyle.subtitle}>by Amenofisch</Text>
                 <Text style={textStyle.subtitle}>Server Name: {serverInfo.server.name}</Text>
                 <Text style={textStyle.subtitle}>Server Version: {serverInfo.server.version}</Text> 
+                <Text style={textStyle.subtitle}>Selected Device: {selectedDevice.name}</Text>
             </View>
 
             <View style={styles.content}>
-                {isLoading ? <ActivityIndicator size='large' color='#fff' /> : selectedDevice == null ? <Text style={textStyle.text}>Select a device</Text> : <Text style={textStyle.text}>{selectedDevice.name}</Text>}
                 <PowerButton device={selectedDevice} value={true} />
                 <PowerButton device={selectedDevice} value={false} />
                 <ColorWheelElement device={selectedDevice} />

@@ -8,7 +8,7 @@ const PowerButton = (props) => {
 
     const proccessReq = (value, device) => {
         setIsLoading(true);
-        device.name == "all" ? RequestProcessor.setPowerForAllDevices(value) : RequestProcessor.setPowerForDevice(device.id, value);
+        device.name == 'All' ? RequestProcessor.setPowerForAllDevices(value) : RequestProcessor.setPowerForDevice(device.id, value);
         setIsLoading(false);
     }
 

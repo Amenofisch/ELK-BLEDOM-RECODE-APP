@@ -9,9 +9,8 @@ const ColorWheelElement = (props) => {
     const [color, setColor] = useState('');
 
     const proccessReq = (color, device) => {
-        console.log(color + " " + device.name)
         setIsLoading(true);
-        device.name == "all" ? RequestProcessor.setColorForAllDevices(color) : RequestProcessor.setColorForDevice(device.id, color);
+        device.name == 'All' ? RequestProcessor.setColorForAllDevices(color) : RequestProcessor.setColorForDevice(device.id, color);
     }
 
     return (

@@ -46,8 +46,8 @@ module.exports = class RequestProcessor {
 
     static async setColorForArrayOfDevices(devices, color) {
         let response = await this.sendPostRequest(config.fullColorEndpoint, {
-            devices: devices,
-            value: color
+            value: color,
+            devices: devices
         });
 
         return response;
@@ -55,8 +55,8 @@ module.exports = class RequestProcessor {
 
     static async setBrightnessForArrayOfDevices(devices, brightness) {
         let response = await this.sendPostRequest(config.fullBrightnessEndpoint, {
-            devices: devices,
-            value: brightness
+            value: brightness,
+            devices: devices
         });
 
         return response;
@@ -64,8 +64,8 @@ module.exports = class RequestProcessor {
 
     static async setPowerForArrayOfDevices(devices, power) {
         let response = await this.sendPostRequest(config.fullPowerEndpoint, {
-            devices: devices,
-            value: power
+            value: power,
+            devices: devices
         });
 
         return response;
