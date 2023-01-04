@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import RequestProcessor from './RequestProcessor.js';
 import ColorWheelElement from './components/ColorWheelElement.js';
 import PowerButton from './components/PowerButton.js';
+import BrightnessSlider from './components/BrightnessSlider.js';
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,7 @@ export default function App() {
             </View>
 
             <View style={styles.content}>
+                <BrightnessSlider device={selectedDevice} />
                 <PowerButton device={selectedDevice} value={true} />
                 <PowerButton device={selectedDevice} value={false} />
                 <ColorWheelElement device={selectedDevice} />
