@@ -5,6 +5,7 @@ import RequestProcessor from './RequestProcessor.js';
 import ColorWheelElement from './components/ColorWheelElement.js';
 import PowerButton from './components/PowerButton.js';
 import BrightnessSlider from './components/BrightnessSlider.js';
+import ColorButton from './components/ColorButton.js';
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +38,15 @@ export default function App() {
                 <PowerButton device={selectedDevice} value={true} />
                 <PowerButton device={selectedDevice} value={false} />
                 <ColorWheelElement device={selectedDevice} />
+                <View style={styles.colorButtonContainer}>
+                    <ColorButton device={selectedDevice} color="#ff0000" />
+                    <ColorButton device={selectedDevice} color="#00ff00" />
+                    <ColorButton device={selectedDevice} color="#0000ff" />
+                    <ColorButton device={selectedDevice} color="#ffff00" />
+                    <ColorButton device={selectedDevice} color="#00ffff" />
+                    <ColorButton device={selectedDevice} color="#ff00ff" />
+                    <ColorButton device={selectedDevice} color="#ffffff" />
+                </View>
             </View>
 
             <View style={styles.footer}>
@@ -81,9 +91,12 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         margin: 5,
     },
-    devicesContainer: {
-
-    },
+    colorButtonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 10,
+    }
 });
 
 const textStyle = StyleSheet.create({

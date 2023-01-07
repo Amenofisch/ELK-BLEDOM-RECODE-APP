@@ -5,11 +5,10 @@ import RequestProcessor from '../RequestProcessor.js';
 
 const BrightnessSlider = (props) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [value, setValue] = useState(100);
 
     const proccessReq = (value, device) => {
         setIsLoading(true);
-        device.name == 'All' ? RequestProcessor.setBrightnessForAllDevices(value) : RequestProcessor.setBrightnessForDevice(device.id, value);
+        device.name == 'All' ? RequestProcessor.setBrightnessForAllDevices(value) : RequestProcessor.setBrightnessForDevice(device.id, value); // TODO: Find a better way for this
         setIsLoading(false);
     }
 
@@ -25,7 +24,6 @@ const BrightnessSlider = (props) => {
                 maximumValue={100}
                 minimumTrackTintColor="#FFFFFF"
                 maximumTrackTintColor="#000000"
-                onValueChange={(value) => setValue(Math.round(value))}
                 onSlidingComplete={(value) => proccessReq(Math.round(value), props.device)}
             />
         </>
