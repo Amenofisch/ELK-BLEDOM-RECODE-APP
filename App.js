@@ -13,6 +13,16 @@ export default function App() {
     const [selectedDevice, setSelectedDevice] = useState({"name": "All"});
     const [serverInfo, setServerInfo] = useState({'server': {'version': 'error'}});
 
+    const customColors = [
+        '#ff0000',
+        '#00ff00',
+        '#0000ff',
+        '#ffff00',
+        '#00ffff',
+        '#ff00ff',
+        '#ffffff',
+    ]
+
     useEffect(() => {
         RequestProcessor.getDevices().then((devices) => {
             setDevices(devices);      
@@ -39,13 +49,9 @@ export default function App() {
                 <PowerButton device={selectedDevice} value={false} />
                 <ColorWheelElement device={selectedDevice} />
                 <View style={styles.colorButtonContainer}>
-                    <ColorButton device={selectedDevice} color="#ff0000" />
-                    <ColorButton device={selectedDevice} color="#00ff00" />
-                    <ColorButton device={selectedDevice} color="#0000ff" />
-                    <ColorButton device={selectedDevice} color="#ffff00" />
-                    <ColorButton device={selectedDevice} color="#00ffff" />
-                    <ColorButton device={selectedDevice} color="#ff00ff" />
-                    <ColorButton device={selectedDevice} color="#ffffff" />
+                    {customColors.map((color) => {
+                        return <ColorButton key={color} device={selectedDevice} color={color} />
+                    })}
                 </View>
             </View>
 
