@@ -8,6 +8,7 @@ const ColorButton = (props) => {
     const proccessReq = (color, device) => {
         setIsLoading(true);
         device.name == 'All' ? RequestProcessor.setColorForAllDevices(color) : RequestProcessor.setColorForDevice(device.id, color);
+        setIsLoading(false);
     }
 
     return (
